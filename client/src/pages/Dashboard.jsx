@@ -1,0 +1,670 @@
+import { useEffect, useState } from "react";
+
+import {
+  Wind,
+  Droplets,
+  Thermometer,
+  Activity,
+  Car,
+  Flame,
+  Cloud,
+  ShieldAlert,
+  Compass,
+  Gauge,
+  MapPin,
+  LocateFixed,
+} from "lucide-react";
+
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
+
+const metrics = [
+  {
+    title: "Air Quality",
+    value: 85,
+    unit: "AQI",
+    icon: Wind,
+  },
+  {
+    title: "PM2.5",
+    value: 42,
+    unit: "µg/m³",
+    icon: Wind,
+    status: "Elevated",
+  },
+  {
+    title: "Temperature",
+    value: 28,
+    unit: "°C",
+    icon: Thermometer,
+    status: "Normal",
+  },
+  {
+    title: "Exposure Index",
+    value: 32,
+    unit: "/ 100",
+    icon: Activity,
+    status: "Moderate",
+  },
+];
+
+const sources = [
+  {
+    name: "Traffic",
+    description: "Vehicle emissions",
+    icon: Car,
+  },
+  {
+    name: "Fire Activity",
+    description: "Regional hotspot activity",
+    icon: Flame,
+  },
+  {
+    name: "Weather",
+    description: "Current dispersion conditions",
+    icon: Cloud,
+  },
+];
+
+const forecast = [
+  { time: "Now", aqi: 85 },
+  { time: "1 PM", aqi: 91 },
+  { time: "2 PM", aqi: 96 },
+  { time: "3 PM", aqi: 102 },
+  { time: "4 PM", aqi: 98 },
+  { time: "5 PM", aqi: 89 },
+];
+
+function getAQIStatus(aqi) {
+  if (aqi <= 50) {
+    return {
+      label: "Good",
+      className: "aqi-good",
+    };
+  }
+
+  if (aqi <= 100) {
+    return {
+      label: "Moderate",
+      className: "aqi-moderate",
+    };
+  }
+
+  if (aqi <= 150) {
+    return {
+      label: "Unhealthy for Sensitive Groups",
+      className: "aqi-sensitive",
+    };
+  }
+
+  if (aqi <= 200) {
+    return {
+      label: "Unhealthy",
+      className: "aqi-unhealthy",
+    };
+  }
+
+  if (aqi <= 300) {
+    return {
+      label: "Very Unhealthy",
+      className: "aqi-very-unhealthy",
+    };
+  }
+
+  return {
+    label: "Hazardous",
+    className: "aqi-hazardous",
+  };
+}
+
+export default function Dashboard() {
+  const [location, setLocation] = useState(null);
+  const [locationStatus, setLocationStatus] = useState("detecting");
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setLocationStatus("unsupported");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+
+        setLocationStatus("success");
+      },
+      () => {
+        setLocationStatus("denied");
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 10000,
+        maximumAge: 300000,
+      }
+    );
+  }, []);
+
+  const currentAQI = 85;
+  const aqiStatus = getAQIStatus(currentAQI);
+
+  return (
+    <main className="dashboard">
+
+      {/* HEADER */}
+
+      <section className="dashboard-heading">
+
+        <div>
+          <span className="dashboard-label">
+            AIRSHIELD INTELLIGENCE
+          </span>
+
+          <h1>Air Quality Dashboard</h1>
+
+          <p>
+            Understand your current environment and
+            make safer decisions.
+          </p>
+        </div>
+
+
+        {/* LOCATION */}
+
+        <div className="dashboard-location">
+
+          <span>LOCATION</span>
+
+          {locationStatus === "detecting" && (
+            <div className="location-status">
+              <LocateFixed size={15} />
+              <strong>Detecting...</strong>
+            </div>
+          )}
+
+          {locationStatus === "success" && (
+            <div className="location-status success">
+              <MapPin size={15} />
+              <strong>Location detected</strong>
+            </div>
+          )}
+
+          {locationStatus === "denied" && (
+            <div className="location-status denied">
+              <MapPin size={15} />
+              <strong>Location unavailable</strong>
+            </div>
+          )}
+
+          {locationStatus === "unsupported" && (
+            <div className="location-status denied">
+              <MapPin size={15} />
+              <strong>Not supported</strong>
+            </div>
+          )}
+
+        </div>
+
+      </section>
+
+
+      {/* LOCATION INFO */}
+
+      {locationStatus === "success" && location && (
+        <div className="coordinates-card">
+
+          <MapPin size={16} />
+
+          <span>
+            Location ready for local AQI and weather data
+          </span>
+
+          <small>
+            {location.latitude.toFixed(4)},{" "}
+            {location.longitude.toFixed(4)}
+          </small>
+
+        </div>
+      )}
+
+      {locationStatus === "denied" && (
+        <div className="location-warning">
+
+          <MapPin size={16} />
+
+          <span>
+            Location access was denied. You can still use
+            AirShield, but local data will require a location.
+          </span>
+
+        </div>
+      )}
+
+
+      <div className="demo-badge">
+        DEMO DATA
+      </div>
+
+
+      {/* METRICS */}
+
+      <section className="metrics-grid">
+
+        {metrics.map((metric) => {
+          const Icon = metric.icon;
+
+          return (
+            <article
+              className="metric-card"
+              key={metric.title}
+            >
+
+              <div className="metric-top">
+
+                <span>{metric.title}</span>
+
+                <div className="metric-icon">
+                  <Icon size={21} />
+                </div>
+
+              </div>
+
+              <div className="metric-value">
+                {metric.value}
+                <small>{metric.unit}</small>
+              </div>
+
+              {metric.title === "Air Quality" ? (
+                <span
+                  className={`metric-status ${aqiStatus.className}`}
+                >
+                  {aqiStatus.label}
+                </span>
+              ) : (
+                <span className="metric-status">
+                  {metric.status}
+                </span>
+              )}
+
+            </article>
+          );
+        })}
+
+      </section>
+
+
+      {/* MAIN GRID */}
+
+      <section className="dashboard-main-grid">
+
+        {/* AQI FORECAST */}
+
+        <div className="dashboard-panel forecast-panel">
+
+          <div className="panel-header">
+
+            <div>
+              <span className="panel-label">
+                AIR QUALITY TREND
+              </span>
+
+              <h2>Next 6 Hours</h2>
+            </div>
+
+            <span className="panel-info">
+              Illustrative
+            </span>
+
+          </div>
+
+          <div className="real-chart">
+
+            <ResponsiveContainer
+              width="100%"
+              height={260}
+            >
+
+              <AreaChart
+                data={forecast}
+                margin={{
+                  top: 10,
+                  right: 10,
+                  left: 0,
+                  bottom: 0,
+                }}
+              >
+
+                <defs>
+
+                  <linearGradient
+                    id="aqiGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+
+                    <stop
+                      offset="0%"
+                      stopColor="#087f65"
+                      stopOpacity={0.25}
+                    />
+
+                    <stop
+                      offset="100%"
+                      stopColor="#087f65"
+                      stopOpacity={0.02}
+                    />
+
+                  </linearGradient>
+
+                </defs>
+
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="#e8efec"
+                />
+
+                <XAxis
+                  dataKey="time"
+                  tick={{
+                    fontSize: 11,
+                    fill: "#7a8b92",
+                  }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+
+                <YAxis
+                  domain={[70, 110]}
+                  tick={{
+                    fontSize: 11,
+                    fill: "#7a8b92",
+                  }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={35}
+                />
+
+                <Tooltip
+                  contentStyle={{
+                    border: "1px solid #dce9e4",
+                    borderRadius: "10px",
+                    background: "#ffffff",
+                  }}
+                />
+
+                <Area
+                  type="monotone"
+                  dataKey="aqi"
+                  stroke="#087f65"
+                  strokeWidth={3}
+                  fill="url(#aqiGradient)"
+                  dot={{
+                    r: 4,
+                    fill: "#087f65",
+                    stroke: "#ffffff",
+                    strokeWidth: 2,
+                  }}
+                  activeDot={{
+                    r: 6,
+                  }}
+                />
+
+              </AreaChart>
+
+            </ResponsiveContainer>
+
+          </div>
+
+          <p className="chart-note">
+            Pollution may increase during the afternoon
+            in this illustrative forecast.
+          </p>
+
+        </div>
+
+
+        {/* SAFETY */}
+
+        <div className="dashboard-panel safety-panel">
+
+          <div className="panel-header">
+
+            <div>
+              <span className="panel-label">
+                SAFETY STATUS
+              </span>
+
+              <h2>What should I do?</h2>
+            </div>
+
+            <ShieldAlert size={25} />
+
+          </div>
+
+          <div className="safety-status">
+
+            <strong>
+              Moderate Risk
+            </strong>
+
+            <p>
+              Outdoor activities are possible, but
+              consider reducing prolonged exposure.
+            </p>
+
+          </div>
+
+          <ul className="recommendations">
+
+            <li>
+              Consider shorter outdoor sessions.
+            </li>
+
+            <li>
+              Avoid intense outdoor exercise if
+              pollution increases.
+            </li>
+
+            <li>
+              Check the forecast before planning
+              prolonged outdoor activities.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </section>
+
+
+      {/* BOTTOM GRID */}
+
+      <section className="dashboard-bottom-grid">
+
+        {/* POTENTIAL FACTORS */}
+
+        <div className="dashboard-panel">
+
+          <div className="panel-header">
+
+            <div>
+
+              <span className="panel-label">
+                ENVIRONMENT
+              </span>
+
+              <h2>
+                Potential Factors
+              </h2>
+
+            </div>
+
+          </div>
+
+          <div className="sources-list">
+
+            {sources.map((source) => {
+
+              const Icon = source.icon;
+
+              return (
+                <div
+                  className="source-item"
+                  key={source.name}
+                >
+
+                  <div className="source-icon">
+                    <Icon size={19} />
+                  </div>
+
+                  <div>
+
+                    <strong>
+                      {source.name}
+                    </strong>
+
+                    <p>
+                      {source.description}
+                    </p>
+
+                  </div>
+
+                </div>
+              );
+
+            })}
+
+          </div>
+
+          <p className="data-disclaimer">
+            These are potential contributing factors,
+            not confirmed source attribution.
+          </p>
+
+        </div>
+
+
+        {/* WEATHER */}
+
+        <div className="dashboard-panel weather-panel">
+
+          <div className="panel-header">
+
+            <div>
+
+              <span className="panel-label">
+                WEATHER
+              </span>
+
+              <h2>
+                Current Conditions
+              </h2>
+
+            </div>
+
+            <Cloud size={25} />
+
+          </div>
+
+
+          <div className="weather-main">
+
+            <div className="temperature">
+              28°
+              <span>C</span>
+            </div>
+
+            <div className="weather-summary">
+
+              <strong>
+                Partly Cloudy
+              </strong>
+
+              <p>
+                Feels like 29°C
+              </p>
+
+              <span className="weather-condition">
+                Comfortable conditions
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div className="weather-details">
+
+            <div>
+              <Droplets size={18} />
+              <span>Humidity</span>
+              <strong>64%</strong>
+            </div>
+
+            <div>
+              <Wind size={18} />
+              <span>Wind Speed</span>
+              <strong>12 km/h</strong>
+            </div>
+
+            <div>
+              <Compass size={18} />
+              <span>Wind Direction</span>
+              <strong>NW</strong>
+            </div>
+
+            <div>
+              <Gauge size={18} />
+              <span>Air Pressure</span>
+              <strong>1012 hPa</strong>
+            </div>
+
+          </div>
+
+
+          <div className="dispersion-box">
+
+            <div className="dispersion-header">
+
+              <span>
+                AIR DISPERSION
+              </span>
+
+              <strong>
+                Moderate
+              </strong>
+
+            </div>
+
+            <div className="dispersion-bar">
+
+              <div className="dispersion-progress"></div>
+
+            </div>
+
+            <p>
+              Illustrative assessment based on current
+              weather conditions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+  );
+}
