@@ -4694,3 +4694,713 @@ button {
   }
 
 }
+/* =========================================
+   AIRSHIELD AI ASSISTANT
+========================================= */
+
+.assistant-page {
+  min-height: calc(100vh - 70px);
+
+  padding: 45px 7% 80px;
+
+  background: #f7faf9;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.assistant-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+.assistant-header h1 {
+  margin: 0;
+
+  color: #142b38;
+
+  font-size: 38px;
+
+  letter-spacing: -1.5px;
+}
+
+.assistant-header p {
+  max-width: 700px;
+
+  margin: 10px 0 0;
+
+  color: #718189;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.assistant-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border: 1px solid #d8e9e3;
+
+  border-radius: 9px;
+
+  background: #edf8f4;
+
+  color: #087f65;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.assistant-status-dot {
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #16805c;
+}
+
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.assistant-grid {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.8fr);
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   CHAT CARD
+========================================= */
+
+.assistant-chat-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 650px;
+
+  overflow: hidden;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.06);
+}
+
+
+/* CHAT HEADER */
+
+.assistant-chat-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 20px 23px;
+
+  border-bottom: 1px solid #e8efec;
+}
+
+.assistant-bot-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 11px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.assistant-chat-header h2 {
+  margin: 0;
+
+  color: #243c47;
+
+  font-size: 16px;
+}
+
+.assistant-chat-header p {
+  margin: 4px 0 0;
+
+  color: #89969b;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.assistant-messages {
+  display: flex;
+
+  flex: 1;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  min-height: 430px;
+
+  max-height: 500px;
+
+  overflow-y: auto;
+
+  padding: 25px;
+}
+
+.chat-message {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  max-width: 88%;
+}
+
+.user-message {
+  align-self: flex-end;
+
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 31px;
+
+  height: 31px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.user-message .message-avatar {
+  background: #edf1f3;
+
+  color: #53666f;
+}
+
+.message-content {
+  padding: 12px 14px;
+
+  border: 1px solid #e2ebe8;
+
+  border-radius: 12px;
+
+  background: #fbfdfc;
+}
+
+.user-message .message-content {
+  border-color: #d5e8e1;
+
+  background: #edf8f4;
+}
+
+.message-content strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #087f65;
+
+  font-size: 11px;
+}
+
+.message-content p {
+  margin: 0;
+
+  color: #4d626b;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.assistant-input-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 0 20px;
+
+  padding: 8px 8px 8px 14px;
+
+  border: 1px solid #d9e5e1;
+
+  border-radius: 11px;
+
+  background: #fbfdfc;
+
+  transition: 0.2s ease;
+}
+
+.assistant-input-area:focus-within {
+  border-color: #087f65;
+
+  box-shadow:
+    0 0 0 3px rgba(8, 127, 101, 0.07);
+}
+
+.assistant-input-area input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #344d58;
+
+  font-size: 11px;
+}
+
+.assistant-input-area input::placeholder {
+  color: #9aa6aa;
+}
+
+.assistant-input-area button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 35px;
+
+  height: 35px;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #087f65;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.assistant-input-area button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 15px rgba(8, 127, 101, 0.2);
+}
+
+.assistant-input-note {
+  margin: 10px 22px 16px;
+
+  color: #9aa5a9;
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   SIDE PANEL
+========================================= */
+
+.assistant-side {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+
+/* CONTEXT */
+
+.assistant-context-card,
+.assistant-suggestions-card {
+  padding: 21px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 28px rgba(25, 65, 55, 0.05);
+}
+
+.assistant-card-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 17px;
+}
+
+.assistant-small-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.assistant-card-heading h3 {
+  margin: 0;
+
+  color: #344d58;
+
+  font-size: 14px;
+}
+
+.assistant-card-heading p {
+  margin: 3px 0 0;
+
+  color: #8b989d;
+
+  font-size: 9px;
+}
+
+.context-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 12px 0;
+
+  border-top: 1px solid #edf2f0;
+}
+
+.context-row span {
+  color: #819096;
+
+  font-size: 10px;
+}
+
+.context-row strong {
+  color: #344d58;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   SUGGESTIONS
+========================================= */
+
+.suggestion-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.suggestion-list button {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: 1px solid #e1ebe8;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #fbfdfc;
+
+  color: #52666e;
+
+  cursor: pointer;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.suggestion-list button:hover {
+  border-color: #bcdcd2;
+
+  background: #edf8f4;
+
+  color: #087f65;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================
+   SAFETY CARD
+========================================= */
+
+.assistant-safety-card {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  padding: 17px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 12px;
+
+  background: #fffaf0;
+}
+
+.assistant-safety-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 33px;
+
+  height: 33px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #f8eac5;
+
+  color: #9a7414;
+}
+
+.assistant-safety-card strong {
+  display: block;
+
+  color: #765f20;
+
+  font-size: 10px;
+}
+
+.assistant-safety-card p {
+  margin: 5px 0 0;
+
+  color: #927b3d;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.assistant-disclaimer {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding: 14px 17px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 10px;
+
+  background: #fffaf0;
+
+  color: #91752a;
+}
+
+.assistant-disclaimer svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.assistant-disclaimer p {
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+  .assistant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-chat-card {
+    min-height: 600px;
+  }
+
+  .assistant-side {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .assistant-safety-card {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .assistant-page {
+    padding: 30px 5% 60px;
+  }
+
+  .assistant-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .assistant-header h1 {
+    font-size: 30px;
+  }
+
+  .assistant-status {
+    align-self: flex-start;
+  }
+
+  .assistant-chat-card {
+    min-height: 600px;
+
+    border-radius: 14px;
+  }
+
+  .assistant-messages {
+    min-height: 400px;
+
+    max-height: 470px;
+
+    padding: 18px;
+  }
+
+  .chat-message {
+    max-width: 94%;
+  }
+
+  .assistant-side {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .assistant-chat-header {
+    padding: 17px;
+  }
+
+  .assistant-input-area {
+    margin: 0 12px;
+  }
+
+  .assistant-input-note {
+    margin-left: 14px;
+
+    margin-right: 14px;
+  }
+
+  .message-content p {
+    font-size: 10px;
+  }
+
+}
