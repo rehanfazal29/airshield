@@ -3978,3 +3978,719 @@ button {
   }
 
 }
+/* =========================================
+   AIRSHIELD SCHOOL SAFETY
+========================================= */
+
+.schools-page {
+  min-height: calc(100vh - 70px);
+
+  padding: 45px 7% 80px;
+
+  background: #f7faf9;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.schools-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+.schools-header h1 {
+  margin: 0;
+
+  color: #142b38;
+
+  font-size: 38px;
+
+  letter-spacing: -1.5px;
+}
+
+.schools-header p {
+  max-width: 700px;
+
+  margin: 10px 0 0;
+
+  color: #718189;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.schools-demo-badge {
+  padding: 9px 13px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 9px;
+
+  background: #fffaf0;
+
+  color: #9a7414;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   SCHOOL SELECTOR
+========================================= */
+
+.school-selector-card {
+  padding: 27px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.06);
+}
+
+.school-selector-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 21px;
+}
+
+.school-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.school-selector-heading h2 {
+  margin: 0;
+
+  color: #243c47;
+
+  font-size: 19px;
+}
+
+.school-selector-heading p {
+  margin: 5px 0 0;
+
+  color: #87959b;
+
+  font-size: 11px;
+}
+
+.school-selector-list {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.school-select-option {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 15px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 11px;
+
+  outline: none;
+
+  background: #fbfdfc;
+
+  color: #425963;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.school-select-option:hover {
+  transform: translateY(-2px);
+
+  border-color: #bcdcd2;
+
+  background: #f4faf7;
+}
+
+.school-select-option.active {
+  border-color: #087f65;
+
+  background: #edf8f4;
+
+  box-shadow:
+    0 6px 18px rgba(8, 127, 101, 0.08);
+}
+
+.school-select-option strong {
+  display: block;
+
+  color: #344d58;
+
+  font-size: 11px;
+}
+
+.school-select-option.active strong {
+  color: #087f65;
+}
+
+.school-select-option span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #8a989d;
+
+  font-size: 9px;
+}
+
+.school-select-option small {
+  color: #8a989d;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   STATUS CARDS
+========================================= */
+
+.school-status-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 17px;
+
+  margin-top: 20px;
+}
+
+.school-status-card {
+  padding: 23px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 28px rgba(25, 65, 55, 0.05);
+}
+
+.school-status-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.school-status-header span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.school-status-header h2 {
+  margin: 0;
+
+  color: #293f49;
+
+  font-size: 21px;
+
+  line-height: 1.3;
+}
+
+.school-status-aqi {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 42px;
+
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.school-status-aqi.warning {
+  background: #fff3e9;
+
+  color: #c56b00;
+}
+
+
+/* =========================================
+   RISK BADGES
+========================================= */
+
+.school-risk-badge {
+  display: inline-block;
+
+  margin-top: 19px;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+}
+
+.school-normal {
+  background: #eaf6f2;
+
+  color: #16805c;
+}
+
+.school-caution {
+  background: #fff8e9;
+
+  color: #9a7414;
+}
+
+.school-high {
+  background: #fff0eb;
+
+  color: #c44d32;
+}
+
+.school-very-high {
+  background: #f8eaf2;
+
+  color: #9b3f7a;
+}
+
+.school-status-description {
+  margin: 13px 0 0;
+
+  color: #718189;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   ACTION ROW
+========================================= */
+
+.school-action-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 17px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #edf2f0;
+
+  color: #087f65;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   SAFETY PLAN
+========================================= */
+
+.school-plan-card {
+  margin-top: 20px;
+
+  padding: 27px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.05);
+}
+
+.school-plan-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 21px;
+
+  color: #087f65;
+}
+
+.school-plan-header h2 {
+  margin: 0;
+
+  color: #243c47;
+
+  font-size: 19px;
+}
+
+.school-plan-header p {
+  margin: 5px 0 0;
+
+  color: #87959b;
+
+  font-size: 11px;
+}
+
+.school-plan-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.school-plan-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 17px;
+
+  border: 1px solid #e2ebe8;
+
+  border-radius: 11px;
+
+  background: #fbfdfc;
+}
+
+.plan-number {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 31px;
+
+  height: 31px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.school-plan-item strong {
+  color: #344d58;
+
+  font-size: 11px;
+}
+
+.school-plan-item p {
+  margin: 5px 0 0;
+
+  color: #87959b;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   SELECTED SCHOOL
+========================================= */
+
+.selected-school-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 20px;
+
+  padding: 22px 25px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 28px rgba(25, 65, 55, 0.05);
+}
+
+.selected-school-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 46px;
+
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.selected-school-card > div:nth-child(2) {
+  flex: 1;
+}
+
+.selected-school-card span {
+  display: block;
+
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.selected-school-card h2 {
+  margin: 5px 0 0;
+
+  color: #293f49;
+
+  font-size: 17px;
+}
+
+.selected-school-card p {
+  margin: 4px 0 0;
+
+  color: #87959b;
+
+  font-size: 10px;
+}
+
+.selected-school-status {
+  padding-left: 25px;
+
+  border-left: 1px solid #e3ebe8;
+
+  text-align: right;
+}
+
+.selected-school-status strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #16805c;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.schools-disclaimer {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding: 14px 17px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 10px;
+
+  background: #fffaf0;
+
+  color: #91752a;
+}
+
+.schools-disclaimer svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.schools-disclaimer p {
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .school-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .school-plan-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 750px) {
+
+  .schools-page {
+    padding: 30px 5% 60px;
+  }
+
+  .schools-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .schools-header h1 {
+    font-size: 30px;
+  }
+
+  .schools-demo-badge {
+    align-self: flex-start;
+  }
+
+  .school-selector-card,
+  .school-plan-card {
+    padding: 20px;
+  }
+
+  .school-selector-list {
+    grid-template-columns: 1fr;
+  }
+
+  .school-select-option {
+    width: 100%;
+  }
+
+  .selected-school-card {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .selected-school-status {
+    width: 100%;
+
+    padding: 15px 0 0;
+
+    border-top: 1px solid #e3ebe8;
+
+    border-left: none;
+
+    text-align: left;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .school-status-card {
+    padding: 19px;
+  }
+
+  .school-plan-item {
+    padding: 14px;
+  }
+
+}
