@@ -2590,3 +2590,828 @@ button {
   }
 
 }
+/* =========================================
+   AIRSHIELD EXPOSURE INTELLIGENCE
+========================================= */
+
+.exposure-page {
+  min-height: calc(100vh - 70px);
+
+  padding: 45px 7% 80px;
+
+  background: #f7faf9;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.exposure-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 30px;
+}
+
+.exposure-header h1 {
+  margin: 0;
+
+  color: #142b38;
+
+  font-size: 38px;
+
+  letter-spacing: -1.5px;
+}
+
+.exposure-header p {
+  max-width: 650px;
+
+  margin: 10px 0 0;
+
+  color: #718189;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.exposure-demo-badge {
+  padding: 9px 13px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 9px;
+
+  background: #fffaf0;
+
+  color: #9a7414;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.exposure-main-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 22px;
+}
+
+
+/* =========================================
+   INPUT CARD
+========================================= */
+
+.exposure-input-card,
+.exposure-result-card {
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.06);
+}
+
+.exposure-input-card {
+  padding: 28px;
+}
+
+.section-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 30px;
+}
+
+.section-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  color: #243c47;
+
+  font-size: 19px;
+}
+
+.section-heading p {
+  margin: 5px 0 0;
+
+  color: #87959b;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.exposure-field {
+  margin-bottom: 26px;
+}
+
+.exposure-field label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #344d58;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.4px;
+}
+
+.exposure-field small {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #929ea3;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   AQI INPUT
+========================================= */
+
+.aqi-input-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.aqi-input-row input[type="range"] {
+  width: 100%;
+
+  height: 5px;
+
+  accent-color: #087f65;
+
+  cursor: pointer;
+}
+
+.aqi-value {
+  min-width: 70px;
+
+  color: #d59b19;
+
+  font-size: 38px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.exposure-field select {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  border: 1px solid #d9e5e1;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #fbfdfc;
+
+  color: #344d58;
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.exposure-field select:focus {
+  border-color: #087f65;
+
+  box-shadow:
+    0 0 0 3px rgba(8, 127, 101, 0.08);
+}
+
+
+/* =========================================
+   DURATION
+========================================= */
+
+.duration-input {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 13px;
+
+  border: 1px solid #d9e5e1;
+
+  border-radius: 9px;
+
+  background: #fbfdfc;
+
+  color: #718189;
+}
+
+.duration-input input {
+  width: 80px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #243c47;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.duration-input span {
+  color: #87959b;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   INPUT SUMMARY
+========================================= */
+
+.exposure-summary {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 8px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #edf2f0;
+}
+
+.exposure-summary div {
+  padding: 12px;
+
+  border-radius: 9px;
+
+  background: #f7faf9;
+}
+
+.exposure-summary span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #8a989d;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+.exposure-summary strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #344d58;
+
+  font-size: 11px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   RESULT CARD
+========================================= */
+
+.exposure-result-card {
+  padding: 28px;
+}
+
+.result-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+.result-label {
+  color: #087f65;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.1px;
+}
+
+.result-top h2 {
+  margin: 7px 0 0;
+
+  color: #203943;
+
+  font-size: 58px;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+.result-top h2 span {
+  color: #a0acae;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  letter-spacing: 0;
+}
+
+.result-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 13px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+
+/* =========================================
+   EXPOSURE METER
+========================================= */
+
+.exposure-meter {
+  width: 100%;
+
+  height: 10px;
+
+  margin: 28px 0 20px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #edf2f0;
+}
+
+.exposure-meter-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #16805c 0%,
+    #d59b19 45%,
+    #c44d32 75%,
+    #9b3f7a 100%
+  );
+
+  transition: width 0.35s ease;
+}
+
+
+/* =========================================
+   EXPOSURE LEVEL
+========================================= */
+
+.exposure-level {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border-radius: 11px;
+}
+
+.level-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 35px;
+
+  height: 35px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+}
+
+.exposure-level strong {
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+.exposure-level p {
+  margin: 4px 0 0;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* LOW */
+
+.exposure-low {
+  background: #edf8f4;
+
+  color: #16805c;
+}
+
+.exposure-low .level-icon {
+  background: #d9f0e8;
+}
+
+
+/* MODERATE */
+
+.exposure-moderate {
+  background: #fff8e9;
+
+  color: #9a7414;
+}
+
+.exposure-moderate .level-icon {
+  background: #f8eac5;
+}
+
+
+/* HIGH */
+
+.exposure-high {
+  background: #fff0eb;
+
+  color: #c44d32;
+}
+
+.exposure-high .level-icon {
+  background: #f7ddd5;
+}
+
+
+/* VERY HIGH */
+
+.exposure-very-high {
+  background: #f8eaf2;
+
+  color: #9b3f7a;
+}
+
+.exposure-very-high .level-icon {
+  background: #eed7e5;
+}
+
+
+/* =========================================
+   RECOMMENDED ACTION
+========================================= */
+
+.exposure-action {
+  margin-top: 18px;
+
+  padding: 18px;
+
+  border: 1px solid #e5eeeb;
+
+  border-radius: 11px;
+
+  background: #fbfdfc;
+}
+
+.exposure-action span,
+.exposure-formula span {
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.exposure-action p {
+  margin: 8px 0 0;
+
+  color: #425963;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   HOW IT WORKS
+========================================= */
+
+.exposure-formula {
+  margin-top: 17px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid #edf2f0;
+}
+
+.exposure-formula p {
+  margin: 7px 0 0;
+
+  color: #849298;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   ACTIVITY SECTION
+========================================= */
+
+.activity-section {
+  margin-top: 22px;
+
+  padding: 28px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.05);
+}
+
+.activity-section .section-heading {
+  margin-bottom: 20px;
+}
+
+.activity-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 10px;
+}
+
+.activity-option {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 7px;
+
+  padding: 15px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #fbfdfc;
+
+  color: #425963;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.activity-option:hover {
+  transform: translateY(-2px);
+
+  border-color: #bcdcd2;
+
+  background: #f4faf7;
+}
+
+.activity-option strong {
+  font-size: 11px;
+}
+
+.activity-option span {
+  color: #8a989d;
+
+  font-size: 9px;
+}
+
+.activity-option.active {
+  border-color: #087f65;
+
+  background: #edf8f4;
+
+  color: #087f65;
+
+  box-shadow:
+    0 5px 15px rgba(8, 127, 101, 0.08);
+}
+
+.activity-option.active span {
+  color: #579687;
+}
+
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.exposure-disclaimer {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding: 14px 17px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 10px;
+
+  background: #fffaf0;
+
+  color: #91752a;
+}
+
+.exposure-disclaimer svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.exposure-disclaimer p {
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .exposure-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .exposure-page {
+    padding: 30px 5% 60px;
+  }
+
+  .exposure-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .exposure-header h1 {
+    font-size: 30px;
+  }
+
+  .exposure-demo-badge {
+    align-self: flex-start;
+  }
+
+  .exposure-input-card,
+  .exposure-result-card,
+  .activity-section {
+    padding: 20px;
+  }
+
+  .aqi-value {
+    min-width: 55px;
+
+    font-size: 30px;
+  }
+
+  .exposure-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-top h2 {
+    font-size: 48px;
+  }
+
+}
