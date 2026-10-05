@@ -3415,3 +3415,566 @@ button {
   }
 
 }
+/* =========================================
+   AIRSHIELD FORECAST INTELLIGENCE
+========================================= */
+
+.forecast-page {
+  min-height: calc(100vh - 70px);
+
+  padding: 45px 7% 80px;
+
+  background: #f7faf9;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.forecast-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+.forecast-header h1 {
+  margin: 0;
+
+  color: #142b38;
+
+  font-size: 38px;
+
+  letter-spacing: -1.5px;
+}
+
+.forecast-header p {
+  max-width: 700px;
+
+  margin: 10px 0 0;
+
+  color: #718189;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.forecast-demo-badge {
+  padding: 9px 13px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 9px;
+
+  background: #fffaf0;
+
+  color: #9a7414;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.forecast-summary-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 17px;
+
+  margin-bottom: 20px;
+}
+
+.forecast-summary-card {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 21px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 15px;
+
+  background: white;
+
+  box-shadow:
+    0 10px 28px rgba(25, 65, 55, 0.05);
+}
+
+.forecast-summary-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.forecast-summary-icon.warning {
+  background: #fff3e9;
+
+  color: #c56b00;
+}
+
+.forecast-summary-card span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.forecast-summary-card strong {
+  display: block;
+
+  color: #293f49;
+
+  font-size: 14px;
+}
+
+.forecast-summary-card p {
+  margin: 5px 0 0;
+
+  color: #8a989d;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   CHART CARD
+========================================= */
+
+.forecast-chart-card {
+  padding: 27px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.06);
+}
+
+.forecast-section-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+.forecast-section-header h2 {
+  margin: 0;
+
+  color: #243c47;
+
+  font-size: 19px;
+}
+
+.forecast-section-header p {
+  margin: 5px 0 0;
+
+  color: #87959b;
+
+  font-size: 11px;
+}
+
+.forecast-chart-badge {
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  background: #edf8f4;
+
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+.forecast-chart {
+  width: 100%;
+
+  height: 360px;
+}
+
+
+/* =========================================
+   HOURLY FORECAST
+========================================= */
+
+.hourly-forecast-section {
+  margin-top: 20px;
+
+  padding: 27px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.05);
+}
+
+.hourly-forecast-grid {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 10px;
+}
+
+.hourly-card {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 15px 10px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 11px;
+
+  outline: none;
+
+  background: #fbfdfc;
+
+  color: #425963;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.hourly-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #bcdcd2;
+
+  background: #f4faf7;
+}
+
+.hourly-card > span {
+  color: #87959b;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.hourly-card strong {
+  color: #293f49;
+
+  font-size: 23px;
+}
+
+.hourly-card small {
+  min-height: 27px;
+
+  color: #8a989d;
+
+  font-size: 8px;
+
+  line-height: 1.3;
+
+  text-align: center;
+}
+
+.hourly-card.active {
+  border-color: #087f65;
+
+  background: #edf8f4;
+
+  box-shadow:
+    0 6px 18px rgba(8, 127, 101, 0.08);
+}
+
+.hourly-card.active > span,
+.hourly-card.active strong {
+  color: #087f65;
+}
+
+
+/* =========================================
+   SELECTED OUTLOOK
+========================================= */
+
+.selected-forecast-card {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  align-items: center;
+
+  margin-top: 20px;
+
+  padding: 25px 27px;
+
+  border: 1px solid #dfeae6;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 12px 35px rgba(25, 65, 55, 0.05);
+}
+
+.selected-forecast-main {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.selected-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 46px;
+
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: #eaf6f2;
+
+  color: #087f65;
+}
+
+.selected-forecast-main > div:last-child > span {
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.9px;
+}
+
+.selected-forecast-main h2 {
+  margin: 5px 0 0;
+
+  color: #243c47;
+
+  font-size: 27px;
+}
+
+.selected-forecast-main p {
+  margin: 3px 0 0;
+
+  color: #7d8c92;
+
+  font-size: 11px;
+}
+
+.selected-recommendation {
+  padding: 17px;
+
+  border: 1px solid #e5eeeb;
+
+  border-radius: 11px;
+
+  background: #fbfdfc;
+}
+
+.recommendation-label {
+  color: #087f65;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.selected-recommendation p {
+  margin: 7px 0 0;
+
+  color: #425963;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.forecast-disclaimer {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding: 14px 17px;
+
+  border: 1px solid #eadfc1;
+
+  border-radius: 10px;
+
+  background: #fffaf0;
+
+  color: #91752a;
+}
+
+.forecast-disclaimer svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.forecast-disclaimer p {
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .forecast-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hourly-forecast-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .selected-forecast-card {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .forecast-page {
+    padding: 30px 5% 60px;
+  }
+
+  .forecast-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .forecast-header h1 {
+    font-size: 30px;
+  }
+
+  .forecast-demo-badge {
+    align-self: flex-start;
+  }
+
+  .forecast-chart-card,
+  .hourly-forecast-section {
+    padding: 20px;
+  }
+
+  .forecast-section-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .forecast-chart {
+    height: 300px;
+  }
+
+  .hourly-forecast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .hourly-forecast-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .forecast-summary-card {
+    padding: 17px;
+  }
+
+  .selected-forecast-card {
+    padding: 20px;
+  }
+
+}
